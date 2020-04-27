@@ -1,4 +1,6 @@
 <div class="container-fluid">
+	<a href="<?php echo base_url('ceo/dashboard_ceo/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm mb-3"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
   <!-- Content Row -->
   <div class="row">
     <?php

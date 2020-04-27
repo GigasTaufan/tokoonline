@@ -1,5 +1,6 @@
 <div class="container-fluid">
 	<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahbarang"> <i class="fa fa-plus fa-sm"></i> Tambah Barang</button>
+	<a href="<?php echo base_url('admin/data_barang/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 	<table class="table table-bordered mt-3">
 		<thead class="thead-dark text-center">
 			<tr>
@@ -47,10 +48,6 @@
 				<div class="form-group">
 					<label>Keterangan</label>
 					<input type="text" name="ket" class="form-control">
-				</div>
-				<div class="form-group">
-					<label>Kategori</label>
-					<input type="text" name="kategori" class="form-control">
 				</div>
 				<div class="form-group">
 					<label>Harga</label>

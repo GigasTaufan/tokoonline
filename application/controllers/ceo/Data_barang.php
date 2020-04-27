@@ -33,4 +33,11 @@ class Data_barang extends CI_Controller
 		$this->load->view('ceo/detail_barang', $data);
 		$this->load->view('templates_ceo/footer');
 	}
+
+	public function export()
+	{
+		$data['title'] = 'CEO-Toko Online Rak Multifungsi';
+		$data['barang'] = $this->model_barang->tampil_data()->result();
+		$this->load->view('ceo/export_data_barang', $data);
+	}
 }

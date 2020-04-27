@@ -1,6 +1,8 @@
 <div class="container-fluid">
 	<h4>Invoice Pemesanan Produk</h4>
 
+	<a href="<?php echo base_url('ceo/invoice/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm mb-3"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
 	<table class="table table-bordered table-hover table-striped">
 		<tr>
 			<thead class="thead-dark text-center">

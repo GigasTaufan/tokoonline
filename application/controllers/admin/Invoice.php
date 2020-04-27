@@ -32,10 +32,18 @@ class Invoice extends CI_Controller
 		$this->load->view('admin/detail_invoice', $data);
 		$this->load->view('templates_admin/footer');
 	}
+
 	public function hapus($id)
 	{
 		$where = array('id' => $id);
 		$this->model_invoice->hapus_data($where, 'tb_invoice');
 		redirect('admin/invoice/index');
+	}
+
+	public function export()
+	{
+		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['invoice'] = $this->model_invoice->tampil_data();
+		$this->load->view('admin/export_data_invoice', $data);
 	}
 }

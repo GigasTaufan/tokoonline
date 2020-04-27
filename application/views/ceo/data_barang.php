@@ -1,4 +1,6 @@
 <div class="container-fluid">
+	<a href="<?php echo base_url('ceo/data_barang/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
 	<table class="table table-bordered mt-3">
 		<thead class="thead-dark text-center">
 			<tr>
