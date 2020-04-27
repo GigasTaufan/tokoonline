@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,7 +21,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['title'] = 'Toko Online';
+		$data['title'] = 'Toko Online Rak Multifungsi';
 		$data['barang'] = $this->model_barang->tampil_data()->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
