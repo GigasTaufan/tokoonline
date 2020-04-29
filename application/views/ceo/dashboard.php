@@ -70,6 +70,12 @@
     <?php endforeach; ?>
 
   </div>
+
+	<div class="row">
+		<?php 
+			$koneksi = mysqli_connect("localhost","root","","tokoonline");
+		?>
+	</div>
   <div class="row">
 
     <!-- Pie Chart -->
@@ -84,12 +90,56 @@
           <div class="chart-pie pt-4 pb-2">
             <canvas id="countStok"></canvas>
           </div>
+					<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+					<script type="text/javascript">
+					var ctx = document.getElementById("countStok");
+					var countStok = new Chart(ctx, {
+						type: 'doughnut',
+						data: {
+							labels: ["Large", "Small"],
+							datasets: [{
+								// data: [$sm['stok'], $lg['stok']],
+								data: [<?php 
+									$large = mysqli_query($koneksi,"select * from tb_barang where ket='LARGE'");
+									$lg = mysqli_fetch_array($large);
+									echo ($lg['stok']);
+								?>, 
+								<?php 
+									$small = mysqli_query($koneksi,"select * from tb_barang where ket='SMALL'");
+									$sm = mysqli_fetch_array($small);
+									echo ($sm['stok']);
+								?>],
+								backgroundColor: ['#4e73df', '#1cc88a'],
+								hoverBackgroundColor: ['#2e59d9', '#17a673'],
+								hoverBorderColor: "rgba(234, 236, 244, 1)",
+							}],
+						},
+						options: {
+							maintainAspectRatio: false,
+							tooltips: {
+								backgroundColor: "rgb(255,255,255)",
+								bodyFontColor: "#858796",
+								borderColor: '#dddfeb',
+								borderWidth: 1,
+								xPadding: 15,
+								yPadding: 15,
+								displayColors: false,
+								caretPadding: 10,
+							},
+							legend: {
+								display: false
+							},
+							cutoutPercentage: 80,
+						},
+					});
+				</script>
+
           <div class="mt-4 text-center small">
             <span class="mr-2">
-              <i class="fas fa-circle text-primary"></i> Small
+              <i class="fas fa-circle text-primary"></i> Large
             </span>
             <span class="mr-2">
-              <i class="fas fa-circle text-success"></i> Large
+              <i class="fas fa-circle text-success"></i> Small
             </span>
           </div>
         </div>

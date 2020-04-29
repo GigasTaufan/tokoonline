@@ -41,6 +41,8 @@
 			<th>No</th>
 			<th>Total Barang Pesanan</th>
 			<th>Total Uang Pesanan</th>
+			<th>Stok Large</th>
+			<th>Stok Small</th>
 		</tr>
 		<?php 
 		// koneksi database
@@ -49,6 +51,13 @@
 		// menampilkan data pegawai
 		$data = mysqli_query($koneksi,"select * from tb_barang");
 		$data1 = mysqli_query($koneksi,"select * from tb_pesanan");
+
+		$large = mysqli_query($koneksi,"select * from tb_barang where ket='LARGE'");
+		$lg = mysqli_fetch_array($large);
+
+		$small = mysqli_query($koneksi,"select * from tb_barang where ket='SMALL'");
+		$sm = mysqli_fetch_array($small);
+		
 		$no = 1;
 			
 		$total_pesanan = 0;
@@ -66,6 +75,8 @@
 			<td><?php echo $no++; ?></td>
 			<td><?php echo $total_pesanan ?></td>
 			<td><?php echo $total_uang ?></td>
+			<td><?php echo $lg['stok'] ?></td>
+			<td><?php echo $sm['stok'] ?></td>
 		</tr>
 	</table>
 
