@@ -58,6 +58,7 @@
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Stok Rak <?php echo $brg->ket ?></div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $brg->stok ?></div>
+								<?php $newstok = $brg->stok?>
               </div>
               <div class="col-auto">
                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -76,12 +77,12 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Perbandingan Pemesanan</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Perbandingan Pemesanan Jenis Rak</h6>
         </div>
         <!-- Card Body -->
         <div class="card-body">
           <div class="chart-pie pt-4 pb-2">
-            <canvas id="myPieChart"></canvas>
+            <canvas id="countStok"></canvas>
           </div>
           <div class="mt-4 text-center small">
             <span class="mr-2">
