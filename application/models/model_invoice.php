@@ -2,10 +2,12 @@
 class Model_invoice extends CI_Model{
 	public function index(){
 		date_default_timezone_set('Asia/Jakarta');
+		$akun_pemesan = $this->input->post('akun_pemesan');
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
 
 		$invoice = array(
+			'akun_pemesan' => $akun_pemesan,
 			'nama' => $nama,
 			'alamat' => $alamat,
 			'tgl_pesan' => date('Y-m-d H:i:s'),
@@ -60,6 +62,16 @@ class Model_invoice extends CI_Model{
 		}else{
 			return false;
 		}
+	}
+
+	public function edit_invoice($where, $table){
+		return $this->db->get_where($table, $where);
+	}
+
+	public function update_data($where, $data, $table)
+	{
+		$this->db->where($where);
+		$this->db->update($table, $data);
 	}
 	
 }

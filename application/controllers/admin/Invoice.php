@@ -33,6 +33,31 @@ class Invoice extends CI_Controller
 		$this->load->view('templates_admin/footer');
 	}
 
+	public function edit($id)
+	{
+		$where = array('id' => $id);
+		$data['invoice'] = $this->model_invoice->edit_invoice($where, 'tb_invoice')->result();
+		$this->load->view('templates_admin/header', $data);
+		$this->load->view('templates_admin/sidebar', $data);
+		$this->load->view('admin/edit_invoice', $data);
+		$this->load->view('templates_admin/footer');
+	}
+
+	public function update()
+	{
+		$id = $this->input->post('id');
+		$status = $this->input->post('status');
+
+		$data = array(
+			'status'=> $status
+		);
+		$where = array(
+			'id' => $id
+		);
+		$this->model_invoice->update_data($where, $data, 'tb_invoice');
+		redirect('admin/invoice/index');
+	}
+
 	public function hapus($id)
 	{
 		$where = array('id' => $id);

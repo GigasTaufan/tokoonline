@@ -55,9 +55,10 @@ class Dashboard extends CI_Controller
 	public function pembayaran()
 	{
 		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['akun_pemesan']=$this->session->userdata('username');
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
-		$this->load->view('pembayaran');
+		$this->load->view('pembayaran', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -89,6 +90,8 @@ class Dashboard extends CI_Controller
 	public function status_pesanan()
 	{
 		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['invoice'] = $this->model_invoice->tampil_data();
+		// $data['akun']=$this->session->userdata('username');
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('status_pesanan', $data);

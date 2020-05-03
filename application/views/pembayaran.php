@@ -16,6 +16,7 @@
 		<form method="post" action="<?php echo base_url(). 'dashboard/proses_pemesanan'?>">
 			<div class="form-group">
 				<label>Nama Lengkap</label>
+				<input type="hidden" name="akun_pemesan" class="form-control" value="<?php echo $akun_pemesan ?>">
 				<input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
 			</div>
 			<div class="form-group">
