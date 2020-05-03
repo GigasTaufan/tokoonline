@@ -19,6 +19,7 @@ class Dashboard_ceo extends CI_Controller
 		$data['title'] = 'CEO-Toko Online Rak Multifungsi';
 		$data['pesanan'] = $this->model_pesanan->tampil_data()->result();
 		$data['barang'] = $this->model_barang->tampil_data()->result();
+		$data['invoice'] = $this->model_invoice->tampil_data();
 		$this->load->view('templates_ceo/header', $data);
 		$this->load->view('templates_ceo/sidebar');
 		$this->load->view('ceo/dashboard', $data);
@@ -30,6 +31,7 @@ class Dashboard_ceo extends CI_Controller
 		$data['title'] = 'CEO-Toko Online Rak Multifungsi';
 		$data['pesanan'] = $this->model_pesanan->tampil_data()->result();
 		$data['barang'] = $this->model_barang->tampil_data()->result();
+		$data['invoice'] = $this->model_invoice->tampil_data();
 		$this->load->view('ceo/export_data_dashboard', $data);
 	}
 }

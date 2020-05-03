@@ -4,15 +4,19 @@
   <!-- Content Row -->
   <div class="row">
     <?php
-    $total_pesanan = 0;
     $total_uang = 0;
     foreach ($pesanan as $psn) :
-
-      $total_pesanan = $psn->jumlah + $total_pesanan;
       $subtotal_uang = $psn->jumlah * $psn->harga;
       $total_uang += $subtotal_uang;
     ?>
     <?php endforeach; ?>
+
+		<?php 
+			$total_pesanan = 0;
+			foreach ($invoice as $inv) :
+				$total_pesanan = 1 + $total_pesanan;
+		?>
+		<?php endforeach; ?>
 
 
 

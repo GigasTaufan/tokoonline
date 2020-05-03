@@ -31,9 +31,16 @@
 
       <!-- Nav Item - Elektronik -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard/keranjang_belanja') ?>">
+        <a class="nav-link" href="<?php echo base_url('dashboard/detail_keranjang') ?>">
           <i class="fas fa-fw fa-shopping-cart"></i>
           <span>Keranjang Belanja</span></a>
+      </li>
+
+      <!-- Nav Item - Elektronik -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('dashboard/status_pesanan') ?>">
+          <i class="fas fa-fw fa-bell"></i>
+          <span>Status Pesanan</span></a>
       </li>
 
       <!-- Divider -->

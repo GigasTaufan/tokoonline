@@ -85,4 +85,13 @@ class Dashboard extends CI_Controller
 		$this->load->view('detail_barang', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function status_pesanan()
+	{
+		$data['title'] = 'Toko Online Rak Multifungsi';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('status_pesanan', $data);
+		$this->load->view('templates/footer');
+	}
 }
