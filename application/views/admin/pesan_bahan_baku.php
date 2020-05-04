@@ -15,7 +15,7 @@
 					<th>STOK BAHAN</th>
 					<th>JUMLAH PESANAN BAHAN</th>
 					<th>HARGA</th>
-					<th colspan=3>AKSI</th>
+					<th colspan=2>AKSI</th>
 				</tr>
 			</thead>
 			<tbody>

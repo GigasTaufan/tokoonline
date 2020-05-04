@@ -25,6 +25,11 @@
       </li>
 
       <!-- Nav Item - Elektronik -->
+			 <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('ceo/Pesan_bahan_baku'); ?>">
+          <i class="fas fa-sync-alt"></i>
+          <span>Data Pesan Bahan Baku</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('ceo/Data_barang'); ?>">
           <i class="fas fa-fw fa-database"></i>
