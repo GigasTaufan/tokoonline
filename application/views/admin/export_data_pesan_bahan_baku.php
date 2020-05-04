@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Data Invoice</title>
+	<title>Data Bahan Baku</title>
 </head>
 <body>
 	<style type="text/css">
@@ -29,44 +29,36 @@
 
 	<?php
 	header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Data_Invoice.xls");
+	header("Content-Disposition: attachment; filename=Data_Bahan_Baku.xls");
 	?>
 
 	<center>
-		<h1>Data Invoice</h1>
+		<h1>Data Bahan Baku</h1>
 	</center>
 
 	<table border="1">
 		<tr>
 			<th>No</th>
-			<th>ID Invoice</th>
-			<th>Nama Pemesanan</th>
-			<th>Alamat Penerima</th>
-			<th>Tanggal Pemesanan</th>
-			<th>Batas Pembayaran</th>
-			<th>Status</th>
-			<th>Pembayaran</th>
-			<th>Jasa Pengiriman</th>
+			<th>Nama Bahan</th>
+			<th>Stok Bahan</th>
+			<th>Jumlah Pesan Bahan Pemesanan</th>
+			<th>Harga Bahan</th>
 		</tr>
 		<?php 
 		// koneksi database
 		$koneksi = mysqli_connect("localhost","root","","tokoonline");
 
 		// menampilkan data pegawai
-		$data = mysqli_query($koneksi,"select * from tb_invoice");
+		$data = mysqli_query($koneksi,"select * from tb_bahan_baku");
 		$no = 1;
 		while($d = mysqli_fetch_array($data)){
 		?>
 		<tr>
 			<td><?php echo $no++; ?></td>
-			<td><?php echo $d['id']; ?></td>
-			<td><?php echo $d['nama']; ?></td>
-			<td><?php echo $d['alamat']; ?></td>
-			<td><?php echo $d['tgl_pesan']; ?></td>
-			<td><?php echo $d['batas_bayar']; ?></td>
-			<td><?php echo $d['status']; ?></td>
-			<td><?php echo $d['pilihan_bank']; ?></td>
-			<td><?php echo $d['pilihan_jasa']; ?></td>
+			<td><?php echo $d['nama_bahan']; ?></td>
+			<td><?php echo $d['stok_bahan']; ?></td>
+			<td><?php echo $d['jum_pesan']; ?></td>
+			<td><?php echo $d['harga']; ?></td>
 		</tr>
 		<?php 
 		}

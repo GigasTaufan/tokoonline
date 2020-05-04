@@ -4,7 +4,7 @@
 	</div>
 	<div class="row">
 		<button class="btn btn-sm btn-primary mr-2" data-toggle="modal" data-target="#tambahbahanbaku"> <i class="fa fa-plus fa-sm"></i> Tambah Bahan Baku</button>
-		<a href="<?php echo base_url('admin/data_barang/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+		<a href="<?php echo base_url('admin/pesan_bahan_baku/export');?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 	</div>
 	<div class="row">
 		<table class="table table-bordered mt-3">
