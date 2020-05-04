@@ -73,5 +73,16 @@ class Model_invoice extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table, $data);
 	}
+
+	public function tampil_data2()
+	{
+		$result = $this->db->where('akun_pemesan', $this->session->userdata('username'))->get('tb_invoice');
+
+		if($result->num_rows() > 0){
+			return $result->result();
+		}else{
+			return false;
+		}
+	}
 	
 }
