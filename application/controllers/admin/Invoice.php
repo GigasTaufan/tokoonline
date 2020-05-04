@@ -37,6 +37,7 @@ class Invoice extends CI_Controller
 	{
 		$where = array('id' => $id);
 		$data['invoice'] = $this->model_invoice->edit_invoice($where, 'tb_invoice')->result();
+		$data['title'] = 'ADMIN-Toko Online Rak Multifungsi';
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar', $data);
 		$this->load->view('admin/edit_invoice', $data);
@@ -67,7 +68,7 @@ class Invoice extends CI_Controller
 
 	public function export()
 	{
-		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['title'] = 'ADMIN-Toko Online Rak Multifungsi';
 		$data['invoice'] = $this->model_invoice->tampil_data();
 		$this->load->view('admin/export_data_invoice', $data);
 	}

@@ -17,6 +17,12 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+			<!-- Nav Item - Invoice -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('admin/Pesan_bahan_baku'); ?>">
+          <i class="fas fa-sync-alt"></i>
+          <span>Pesan Bahan Baku</span></a>
+      </li>
       <!-- Nav Item - Data Barang -->
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('admin/Data_barang'); ?>">
@@ -29,6 +35,7 @@
           <i class="fas fa-fw fa-file-invoice"></i>
           <span>Invoice</span></a>
       </li>
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

@@ -58,6 +58,7 @@ class Data_barang extends CI_Controller
 	public function edit($id)
 	{
 		$where = array('id_brg' => $id);
+		$data['title'] = 'ADMIN-Toko Online Rak Multifungsi';
 		$data['barang'] = $this->model_barang->edit_barang($where, 'tb_barang')->result();
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar');
@@ -95,7 +96,7 @@ class Data_barang extends CI_Controller
 
 	public function detail($id_brg)
 	{
-		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['title'] = 'ADMIN-Toko Online Rak Multifungsi';
 		$data['barang'] = $this->model_barang->detail_brg($id_brg);
 		$this->load->view('templates_admin/header', $data);
 		$this->load->view('templates_admin/sidebar', $data);
@@ -105,7 +106,7 @@ class Data_barang extends CI_Controller
 
 	public function export()
 	{
-		$data['title'] = 'Toko Online Rak Multifungsi';
+		$data['title'] = 'ADMIN-Toko Online Rak Multifungsi';
 		$data['barang'] = $this->model_barang->tampil_data()->result();
 		$this->load->view('admin/export_data_barang', $data);
 	}
