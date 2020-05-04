@@ -91,10 +91,20 @@ class Dashboard extends CI_Controller
 	{
 		$data['title'] = 'Toko Online Rak Multifungsi';
 		$data['invoice'] = $this->model_invoice->tampil_data2();
-		// $data['akun']=$this->session->userdata('username');
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('status_pesanan', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function detail_pesanan($id_invoice)
+	{
+		$data['pesanan']  = $this->model_invoice->ambil_id_pesanan($id_invoice);
+		$data['invoice']  = $this->model_invoice->ambil_id_invoice($id_invoice);
+		$data['title'] = 'Toko Online Rak Multifungsi';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('detail_pesanan', $data);
 		$this->load->view('templates/footer');
 	}
 }

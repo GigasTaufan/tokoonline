@@ -6,8 +6,8 @@
 				<label>Role</label>
 				<input type="hidden" name="id" class="form-control" value="<?php echo $inv->id?>">
 				<select class="form-control" name="status">
-					<option value="Dikirim">Dikirim</option>
-					<option value="Belum">Belum</option>
+					<option value="DIKIRIM">Dikirim</option>
+					<option value="BELUM DIKIRIM">Belum Dikirim</option>
 				</select>
 			</div>
 

@@ -29,7 +29,7 @@
 			</div>
 			<div class="form-group">
 				<label>Jasa Pengiriman</label>
-				<select class="form-control">
+				<select class="form-control" name="jasa">
 					<option value="JNE">JNE</option>
 					<option value="Post_Indonesia">Post Indonesia</option>
 					<option value="Tiki">Tiki</option>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="form-group">
 				<label>Pilih Bank</label>
-				<select class="form-control">
+				<select class="form-control" name="bank">
 					<option value="BRI">BRI</option>
 					<option value="Mandiri">Mandiri</option>
 					<option value="COD">COD</option>

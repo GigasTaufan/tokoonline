@@ -13,6 +13,8 @@
 				<th>Tanggal Pemesanan</th>
 				<th>Batas Pembayaran</th>
 				<th>Status</th>
+				<th>Pembayaran</th>
+				<th>Jasa Pengiriman</th>
 				<th colspan=3>Aksi</th>
 			</thead>
 		</tr>
@@ -25,6 +27,8 @@
 				<td><?php echo $inv->tgl_pesan ?></td>
 				<td><?php echo $inv->batas_bayar ?></td>
 				<td><?php echo $inv->status?></td>
+				<td><?php echo $inv->pilihan_bank?></td>
+				<td><?php echo $inv->pilihan_jasa?></td>
 				
 				<td><?php echo anchor('admin/Invoice/detail/'. $inv->id, '<div class="btn btn-success btn-sm" > <i class="fas fa-search-plus"></i> Detail</div>')?></td>
 				<td><?php echo anchor('admin/Invoice/edit/'. $inv->id, '<div class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> Edit</div>')?></td>

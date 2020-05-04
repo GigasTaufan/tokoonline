@@ -5,6 +5,8 @@ class Model_invoice extends CI_Model{
 		$akun_pemesan = $this->input->post('akun_pemesan');
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
+		$pilihan_bank = $this->input->post('bank');
+		$pilihan_jasa = $this->input->post('jasa');
 
 		$invoice = array(
 			'akun_pemesan' => $akun_pemesan,
@@ -12,6 +14,9 @@ class Model_invoice extends CI_Model{
 			'alamat' => $alamat,
 			'tgl_pesan' => date('Y-m-d H:i:s'),
 			'batas_bayar' => date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m'), date('d') +1, date('Y'))),
+			'status' => 'BELUM DIKIRIM',
+			'pilihan_bank' => $pilihan_bank,
+			'pilihan_jasa' => $pilihan_jasa
 		);
 		$this->db->insert('tb_invoice', $invoice);
 		$id_invoice =  $this->db->insert_id();
