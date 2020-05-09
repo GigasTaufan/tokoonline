@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2020 at 05:36 AM
+-- Generation Time: May 04, 2020 at 09:59 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.16
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `tokoonline`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_bahan_baku`
+--
+
+CREATE TABLE `tb_bahan_baku` (
+  `id` int(11) NOT NULL,
+  `nama_bahan` varchar(50) NOT NULL,
+  `stok_bahan` int(11) NOT NULL,
+  `jum_pesan` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_bahan_baku`
+--
+
+INSERT INTO `tb_bahan_baku` (`id`, `nama_bahan`, `stok_bahan`, `jum_pesan`, `harga`) VALUES
+(1, 'Kayu Jati Jawa', 30, 20, 300000),
+(2, 'Besi', 40, 20, 200000),
+(4, 'Plitur', 10, 5, 15000);
 
 -- --------------------------------------------------------
 
@@ -41,8 +64,8 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_brg`, `nama_brg`, `ket`, `harga`, `stok`, `gambar`) VALUES
-(1, 'Rak Multiguna', 'LARGE', 1500000, 4, 'RakMultifungsi1.jpg'),
-(2, 'Rak Multiguna', 'SMALL', 750000, 4, 'RakMultifungsi2.jpg');
+(1, 'Rak Multiguna Large', 'LARGE', 1500000, 7, 'RakMultifungsi1.jpg'),
+(2, 'Rak Multiguna', 'SMALL', 750000, 5, 'RakMultifungsi2.jpg');
 
 -- --------------------------------------------------------
 
@@ -52,21 +75,23 @@ INSERT INTO `tb_barang` (`id_brg`, `nama_brg`, `ket`, `harga`, `stok`, `gambar`)
 
 CREATE TABLE `tb_invoice` (
   `id` int(11) NOT NULL,
+  `akun_pemesan` varchar(20) NOT NULL,
   `nama` varchar(120) NOT NULL,
   `alamat` varchar(250) NOT NULL,
   `tgl_pesan` datetime NOT NULL,
-  `batas_bayar` datetime NOT NULL
+  `batas_bayar` datetime NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `pilihan_bank` text NOT NULL,
+  `pilihan_jasa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_invoice`
 --
 
-INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
-(8, 'Pemesan 2', 'Alamat Pemesan 2', '2020-04-21 19:39:54', '2020-04-22 19:39:54'),
-(9, 'Pemesan 2', 'Alamat Pemesan 2', '2020-04-21 19:40:51', '2020-04-22 19:40:51'),
-(10, 'Customer 1', 'Alamat Customer 1', '2020-04-22 07:40:40', '2020-04-23 07:40:40'),
-(11, 'Customer 1', 'Alamat Customer 1', '2020-04-22 09:04:15', '2020-04-23 09:04:15');
+INSERT INTO `tb_invoice` (`id`, `akun_pemesan`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`, `status`, `pilihan_bank`, `pilihan_jasa`) VALUES
+(19, 'customer', 'Pemesan 2', 'Alamat Pemesan 2', '2020-05-04 08:45:06', '2020-05-05 08:45:06', 'DIKIRIM', 'COD', 'Post_Indonesia'),
+(20, 'bambang', 'Bambang', 'Alamat Bambang', '2020-05-04 09:02:56', '2020-05-05 09:02:56', 'BELUM DIKIRIM', 'Mandiri', 'Tiki');
 
 -- --------------------------------------------------------
 
@@ -80,26 +105,18 @@ CREATE TABLE `tb_pesanan` (
   `id_brg` int(11) NOT NULL,
   `nama_brg` varchar(60) NOT NULL,
   `jumlah` int(3) NOT NULL,
-  `harga` int(10) NOT NULL,
-  `piliihan` text NOT NULL
+  `harga` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_brg`, `nama_brg`, `jumlah`, `harga`, `piliihan`) VALUES
-(1, 3, 9, 'Rak Multiguna', 2, 1500000, ''),
-(4, 4, 9, 'Rak Multiguna', 1, 1500000, ''),
-(6, 5, 9, 'Rak Multiguna', 1, 1500000, ''),
-(10, 6, 9, 'Rak Multiguna', 1, 1500000, ''),
-(12, 8, 1, 'Rak Multiguna', 1, 1500000, ''),
-(13, 8, 2, 'Rak Multiguna', 1, 750000, ''),
-(14, 9, 1, 'Rak Multiguna', 1, 1500000, ''),
-(15, 9, 2, 'Rak Multiguna', 2, 750000, ''),
-(16, 10, 1, 'Rak Multiguna', 1, 1500000, ''),
-(17, 11, 2, 'Rak Multiguna', 2, 750000, ''),
-(18, 11, 1, 'Rak Multiguna', 1, 1500000, '');
+INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_brg`, `nama_brg`, `jumlah`, `harga`) VALUES
+(25, 18, 2, 'Rak Multiguna', 1, 750000),
+(26, 19, 1, 'Rak Multiguna Large', 1, 1500000),
+(27, 19, 2, 'Rak Multiguna', 1, 750000),
+(28, 20, 1, 'Rak Multiguna Large', 1, 1500000);
 
 --
 -- Triggers `tb_pesanan`
@@ -141,6 +158,12 @@ INSERT INTO `tb_user` (`id`, `nama`, `username`, `password`, `role_id`) VALUES
 --
 
 --
+-- Indexes for table `tb_bahan_baku`
+--
+ALTER TABLE `tb_bahan_baku`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
@@ -169,6 +192,12 @@ ALTER TABLE `tb_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tb_bahan_baku`
+--
+ALTER TABLE `tb_bahan_baku`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
@@ -178,13 +207,13 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT for table `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
