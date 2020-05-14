@@ -60,7 +60,7 @@ class Auth extends CI_Controller {
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
-                'password' => htmlspecialchars($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => md5($this->input->post('password')),
                 'role_id' => 2
 			];
 			
